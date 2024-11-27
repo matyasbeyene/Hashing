@@ -1,0 +1,14 @@
+import hashlib
+
+def hash_data(data, algorithm="sha256"):
+    """Hashes the given data using the specified algorithm."""
+    hash_object = hashlib.new(algorithm)
+    hash_object.update(data.encode('utf-8'))
+    return hash_object.hexdigest()
+
+# Example usage
+if __name__ == "__main__":
+    data = "Hello, world!"
+    print("Original Data:", data)
+    print("SHA-256 Hash:", hash_data(data, "sha256"))
+    print("MD5 Hash:", hash_data(data, "md5"))
